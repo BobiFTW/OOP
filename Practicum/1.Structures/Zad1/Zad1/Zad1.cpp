@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cstring>
 
 struct Time {
 
 	int hour;
 	int minute;
 	int second;
+
 	Time get_difference(const Time other_time) const {
 
 		int h, m, s;
@@ -66,6 +68,14 @@ struct Time {
 		return result;
 	};
 
+	void set_time() {
+		std::cin >> hour >> minute >> second;
+	}
+
+	void print_time() {
+		std::cout << hour << " " << minute << " " << second;
+	}
+
 };
 
 struct Event {
@@ -78,13 +88,60 @@ struct Event {
 		return start_time.get_difference(end_time);
 	}
 
+	void setEvent() {
+		std::cout << "Title: ";
+		std::cin.getline(title, 128);
+		std::cout << "Organiser: ";
+		std::cin.getline(organiser, 128);
+		std::cout << "Start time: ";
+		start_time.set_time();
+		std::cout << "End time: ";
+		end_time.set_time();
+	}
 };
 
-Time start_time;
-Time end_time;
-Time durr = start_time.get_difference(end_time);
-
 int main() {
+
+	//2. á)
+	std::cout << "Sample event\n";
+	Event sample;
+	sample.setEvent();
+
+	std::cout << "n: ";
+	unsigned n;
+	std::cin >> n;
+
+	Event* events = new Event[n];
+	Time durationTotal{ 0, 0, 0 };
+
+	//2. â)
+
+	for (unsigned i = 0; i < n; i++) {
+
+		std::cin.ignore();
+		events[i].setEvent();
+
+		durationTotal.second = events[i].get_duration().second;
+
+		if (durationTotal.second >= 60) {
+			durationTotal.second -= 60;
+			durationTotal.minute++;
+		}
+
+		durationTotal.minute = events[i].get_duration().minute;
+
+		if (durationTotal.minute >= 60) {
+			durationTotal.minute -= 60;
+			durationTotal.hour++;
+		}
+
+		durationTotal.hour = events[i].get_duration().hour;
+
+	}
+
+	durationTotal.print_time();
+
+	delete[] events;
 
 	return 0;
 
