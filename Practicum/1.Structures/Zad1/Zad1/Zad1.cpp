@@ -102,7 +102,7 @@ struct Event {
 
 int main() {
 
-	//2. á)
+	//2. b)
 	std::cout << "Sample event\n";
 	Event sample;
 	sample.setEvent();
@@ -114,29 +114,27 @@ int main() {
 	Event* events = new Event[n];
 	Time durationTotal{ 0, 0, 0 };
 
-	//2. â)
+	//2. v)
 
 	for (unsigned i = 0; i < n; i++) {
 
 		std::cin.ignore();
 		events[i].setEvent();
 
-		durationTotal.second = events[i].get_duration().second;
+		durationTotal.second += events[i].get_duration().second;
+		durationTotal.minute += events[i].get_duration().minute;
+		durationTotal.hour += events[i].get_duration().hour;
 
-		if (durationTotal.second >= 60) {
-			durationTotal.second -= 60;
-			durationTotal.minute++;
-		}
+	}
 
-		durationTotal.minute = events[i].get_duration().minute;
+	while (durationTotal.second >= 60) {
+		durationTotal.minute++;
+		durationTotal.second -= 60;
+	}
 
-		if (durationTotal.minute >= 60) {
-			durationTotal.minute -= 60;
-			durationTotal.hour++;
-		}
-
-		durationTotal.hour = events[i].get_duration().hour;
-
+	while (durationTotal.minute >= 60) {
+		durationTotal.hour++;
+		durationTotal.minute -= 60;
 	}
 
 	durationTotal.print_time();
