@@ -1,0 +1,3 @@
+﻿  Zad2.cpp
+C:\Users\Bobi\source\repos\OOP\Practicum\1.Structures\Zad2\Zad2\Zad2.cpp(42,4): error C2065: 's': undeclared identifier
+C:\Users\Bobi\source\repos\OOP\Practicum\1.Structures\Zad2\Zad2\Zad2.cpp(43,3): error C2143: syntax error: missing ';' before '}'
