@@ -27,6 +27,19 @@ void Set::copy(int const* elements, int numElements, int capacity) {
 	}
 }
 
+void Set::move(Set&& other) {
+
+	this->elements = other.elements;
+
+	this->capacity = capacity;
+	this->numElements = numElements;
+
+
+	other.elements = nullptr;
+	other.capacity = 0;
+	other.numElements = 0;
+
+}
 Set::Set() {
 
 	this->elements = new int[6];
@@ -50,6 +63,37 @@ Set& Set::operator= (Set const& other) {
 
 Set::~Set() {
 	delete this->elements;
+}
+
+Set::Set(Set&& other) {
+	this->move(std::move(other));
+}
+
+Set& Set::operator=(Set&& other) {
+
+	if (this != &other) {
+		this->move(std::move(other));
+	}
+
+	return *this;
+}
+
+Set& operator+ (Set setL, const Set setR) {
+
+	setL.numElements += setR.numElements;
+	if (setL.capacity > setR.capacity) {
+		setL.capacity = setR.capacity;
+	}
+	if (setL.numElements >= setL.capacity) {
+		setL.resize();
+	}
+
+	for (int i = 0; i < setR.numElements; i++) {
+		setL.addElement(setR.elements[i]);
+	}
+
+	return setL;
+
 }
 
 bool Set::addElement(const int element) {
