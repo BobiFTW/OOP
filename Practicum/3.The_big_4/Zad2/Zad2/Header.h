@@ -1,17 +1,17 @@
 #ifndef VENDING_MACHINE
 #define VENDING_MACHINE
 
-struct Products {
+struct Inventory {
 	
-	unsigned sweetProducts;
-	unsigned saltyProducts;
+	unsigned sweets;
+	unsigned salts;
 	unsigned drinks;
 
 };
 
 class VendingMachine {
 
-	Products products;
+	Inventory products;
 
 	char** msg;
 	char* id;
@@ -19,7 +19,7 @@ class VendingMachine {
 
 public:
 
-	VendingMachine(Products products, )
+	VendingMachine(Inventory products, );
 	VendingMachine();
 	VendingMachine(const VendingMachine& other);
 
