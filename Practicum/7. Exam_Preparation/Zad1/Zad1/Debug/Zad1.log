@@ -1,0 +1,30 @@
+﻿  main.cpp
+  system.cpp
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(14,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(25,21): error C2601: 'System::free': local function definitions are illegal
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(8): message : this line contains a '{' which has not yet been matched
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(31,39): error C2601: 'System::copy': local function definitions are illegal
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(8): message : this line contains a '{' which has not yet been matched
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(41,33): error C2601: 'System::move': local function definitions are illegal
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(8): message : this line contains a '{' which has not yet been matched
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(50,14): error C2059: syntax error: ';'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(32,8): error C2039: 'freee': is not a member of 'System'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.h(6): message : see declaration of 'System'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(33,24): error C2248: 'User::capacity': cannot access private member declared in class 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(14): message : see declaration of 'User::capacity'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(7): message : see declaration of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(34,24): error C2039: 'userNum': is not a member of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(7): message : see declaration of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(36,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(37,24): error C2039: 'user': is not a member of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(7): message : see declaration of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(44,21): error C2039: 'user': is not a member of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(7): message : see declaration of 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\system.cpp(46,1): error C2248: 'User::free': cannot access private member declared in class 'User'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(18): message : see declaration of 'User::free'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.h(7): message : see declaration of 'User'
+  users.cpp
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.cpp(11,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.cpp(14,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\7. Exam_Preparation\Zad1\Zad1\users.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
