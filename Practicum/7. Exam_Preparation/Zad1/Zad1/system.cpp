@@ -89,4 +89,5 @@ bool System::addUser(const User& user) {
 	this->resize();
 	this->user[userNum++] = user;
 
+	return true;
 }
