@@ -22,10 +22,12 @@ public:
 
 	User(char* username = nullptr, char* password = nullptr, Event* events = nullptr);
 	User(const User& other);
-	User& operator= (const User& other);
+	User& operator=(const User& other);
 	~User();
 	User(User&& other);
-	User& operator= (User&& other);
+	User& operator=(User&& other);
+
+	bool operator==(const User& other) const;
 
 };
 

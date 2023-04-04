@@ -107,3 +107,8 @@ User& User::operator=(User&& other) {
 
 	return *this;
 }
+
+bool User::operator==(const User& other) const
+{
+	return strcmp(this->username, other.username) && strcmp(this->password, other.password) && this->events == other.events;
+}

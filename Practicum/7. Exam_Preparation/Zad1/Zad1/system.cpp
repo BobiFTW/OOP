@@ -81,7 +81,7 @@ System& System::operator=(System&& other) {
 bool System::addUser(const User& user) {
 
 	for (int i = 0; i < this->userNum; i++) {
-		if (this->user[i] == user) { //To do: declare operator== in class User
+		if (this->user[i] == user) {
 			return false;
 		}
 	}
