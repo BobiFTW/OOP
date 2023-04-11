@@ -1,6 +1,6 @@
 ﻿  main.cpp
-C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(66,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(63): message : while compiling class template member function 'void Sorted<int>::resize(void)'
-C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(119): message : see reference to function template instantiation 'void Sorted<int>::resize(void)' being compiled
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(63,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(60): message : while compiling class template member function 'void Sorted<int>::resize(void)'
+C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\sorted.h(118): message : see reference to function template instantiation 'void Sorted<int>::resize(void)' being compiled
 C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Zad1\main.cpp(6): message : see reference to class template instantiation 'Sorted<int>' being compiled
   Zad1.vcxproj -> C:\Users\Bobi\source\repos\OOP2\OOP\Practicum\8.Templates_And_Inheritance\Zad1\Debug\Zad1.exe

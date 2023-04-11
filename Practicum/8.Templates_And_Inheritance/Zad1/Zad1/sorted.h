@@ -17,6 +17,9 @@ private:
 	}
 
 	void copy(const Sorted<T>& other) {
+		this->elCount = other.elCount;
+		this->elCapacity = other.elCapacity;
+
 		this->element = new T[this->capacity];
 
 		for (unsigned i = 0; i < this->elCount; i++) {
@@ -25,20 +28,14 @@ private:
 	}
 
 	void move(Sorted<T>&& other) {
-		this->free();
 		this->elCount = other.elCount;
 		this->elCapacity = other.elCapacity;
+		this->element = other.element;
 
-		this->element = new T * [this->capacity];
-
-		for (unsigned i = 0; i < this->elCount; i++) {
-			this->element[i] = other.element[i];
-		}
-		delete[] other.element;
+		other.element = nullptr;
 	}
 	
 	int binSearch(T& key) {
-
 		unsigned l = 0, r = this->elCount - 1;
 		unsigned m = (l + r) / 2;
 		while (l <= r) {
@@ -91,6 +88,7 @@ public:
 
 	Sorted<T>& operator=(const Sorted& other) {
 		if (this != &other) {
+			this->free();
 			this->copy(other);
 		}
 
@@ -103,6 +101,7 @@ public:
 
 	Sorted<T>& operator=(Sorted&& other) {
 		if (this != &other) {
+			this->free();
 			this->move(std::move(other));
 		}
 
