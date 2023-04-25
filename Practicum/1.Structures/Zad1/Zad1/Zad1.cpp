@@ -1,146 +1,126 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
 
 struct Time {
+	unsigned hour;
+	unsigned minute;
+	unsigned second;
 
-	int hour;
-	int minute;
-	int second;
-
-	Time get_difference(const Time other_time) const {
-
-		int h, m, s;
-		bool asc;
-		if (hour < other_time.hour) {
-			asc = true;
-		}
-		else if(hour > other_time.hour){
-			asc = false;
-		}
-		else {
-
-			if (minute < other_time.minute) {
-				asc = true;
-			}
-			else if (minute > other_time.minute) {
-				asc = false;
-			}
-			else {
-
-				if (second < other_time.second) {
-					asc = true;
-				}
-				else {
-					asc = false;
-				}
-
-			}
-
+	unsigned to_seconds() const {
+		unsigned total = second;
+		for (unsigned i = 0; i < hour; i++) {
+			total += 3600;
 		}
 
-		if (asc) {
-
-			h = other_time.hour - hour;
-			m = other_time.minute - minute;
-			s = other_time.second - second;
-
-		}
-		else {
-
-			h = hour - other_time.hour;
-			m = minute - other_time.minute;
-			s = second - other_time.second;
-
+		for (unsigned i = 0; i < minute; i++) {
+			total += 60;
 		}
 
-		if (s < 0) {
-			s += 60;
-			m--;
-		}
+		return total;
+	}
+	
+	bool exceeds(const Time& other) const {
+		return to_seconds() > other.to_seconds();
+	}
+	
+	Time get_diff(const Time& other) const;
 
-		if (m < 0) {
-			m += 60;
-			h--;
-		}
-
-		Time result{ h, m, s };
-
-		return result;
-	};
-
-	void set_time() {
+	void read() {
 		std::cin >> hour >> minute >> second;
 	}
 
-	void print_time() {
-		std::cout << hour << " " << minute << " " << second;
+	void print() const {
+		std::cout << hour << ":" << minute << ":" << second << "\n";
 	}
 
+	void add(const Time& other) {
+		second += other.second;
+		while (second >= 60) {
+			minute++;
+			second -= 60;
+		}
+		minute += other.minute;
+		while (minute >= 60) {
+			hour++;
+			minute -= 60;
+		}
+		hour += other.hour;
+	}
 };
 
+Time to_time(const unsigned& seconds) {
+	Time t = { 0, 0, seconds };
+
+	while (t.second >= 60) {
+		t.minute++;
+		t.second -= 60;
+	}
+
+	while (t.minute >= 60) {
+		t.hour++;
+		t.minute -= 60;
+	}
+
+	return t;
+}
+
+Time Time::get_diff(const Time& other) const {
+	if (to_seconds() > other.to_seconds()) {
+		return to_time(to_seconds() - other.to_seconds());
+	}
+	return to_time(other.to_seconds() - to_seconds());
+}
+
 struct Event {
-	
 	char title[128];
 	char organiser[128];
 	Time start_time;
 	Time end_time;
-	Time get_duration() {
-		return start_time.get_difference(end_time);
+
+	Time get_duration() const {
+		return start_time.get_diff(end_time);
 	}
 
-	void setEvent() {
-		std::cout << "Title: ";
+	void read() {
+		std::cin.ignore();
 		std::cin.getline(title, 128);
-		std::cout << "Organiser: ";
 		std::cin.getline(organiser, 128);
-		std::cout << "Start time: ";
-		start_time.set_time();
-		std::cout << "End time: ";
-		end_time.set_time();
+		start_time.read();
+		end_time.read();
+	}
+
+	void print() {
+		std::cout << title << "\n" << organiser << "\n";
+		start_time.print();
+		end_time.print();
 	}
 };
 
+Time total_duration(const Event* events, unsigned count) {
+	Time t = { 0, 0, 0 };
+	for (unsigned i = 0; i < count; i++) {
+		t.add(events[i].get_duration());
+	}
+
+	return t;
+}
+
 int main() {
+	Event a;
+	a.read();
 
-	//2. b)
-	std::cout << "Sample event\n";
-	Event sample;
-	sample.setEvent();
+	//a.print();
 
-	std::cout << "n: ";
 	unsigned n;
 	std::cin >> n;
 
-	Event* events = new Event[n];
-	Time durationTotal{ 0, 0, 0 };
-
-	//2. v)
-
+	Event* e = new Event[n];
 	for (unsigned i = 0; i < n; i++) {
-
-		std::cin.ignore();
-		events[i].setEvent();
-
-		durationTotal.second += events[i].get_duration().second;
-		durationTotal.minute += events[i].get_duration().minute;
-		durationTotal.hour += events[i].get_duration().hour;
-
+		e[i].read();
 	}
+	total_duration(e, n).print();
 
-	while (durationTotal.second >= 60) {
-		durationTotal.minute++;
-		durationTotal.second -= 60;
-	}
-
-	while (durationTotal.minute >= 60) {
-		durationTotal.hour++;
-		durationTotal.minute -= 60;
-	}
-
-	durationTotal.print_time();
-
-	delete[] events;
-
+	delete[] e;
 	return 0;
-
 }
