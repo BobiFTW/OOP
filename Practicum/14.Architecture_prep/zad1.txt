@@ -1,0 +1,62 @@
+class Room
+-	Name – std::string
+-	Seat Count - size_t
+
+class Movie
+-	Name – std::string
+-	Genre – std::string
+-	Length – class/struct Time
+-	Year of premiere – unsigned short
+
+class User
+-	First Name – std::string
+-	Surname – std::string
+-	Last Name – std::string 
+-	Date of birth – class/struct Date
+-	Tickets – vector<Reservation>
+
+-	Cinema*
+-	vector<Reservations>
+
+-	virtual void buyTicket(Screening* screening) = 0;
+-	void printReservations()
+-	virtual ~Person() = default
+
+	class Client : User
+	-	Discount - enum (none, senior, high school, university0)
+	-	Money balance -  size_t
+	
+	-	void buyTicket(Screening* screening)
+	-	void addMoney(double money)
+
+	class Employee : User
+	-	Salary – size_t
+	-	void buyTicket(Screening* screening)
+
+class Reservation
+-	Movie film
+-	Room room
+-	Time startTime
+
+class Screening
+-	Movie* film
+-	vector<Person*> people
+-	Room* room
+-	double price
+
+-	makeReservation(const Person*) //checks if there's any unoccupied seat
+-	void print() const
+-	double getPrice() const
+
+class Cinema
+-	double balance
+-	vector<Client*>
+-	-vector<Employee*>
+-	Timetable timetable
+-	vector<Movies> films
+
+-	void addMovie(Movie movie)
+-	void addScreening(Screening screening)
+-	void addClient(Client client)
+-	void allEmployee(Employee employee)
+-	void changeBalance(double money)
